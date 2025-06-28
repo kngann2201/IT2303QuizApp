@@ -5,6 +5,7 @@
 package com.dtkn.quizapp;
 
 import com.dtkn.pojo.Category;
+import com.dtkn.utils.JdbcConnector;
 import java.io.Console;
 import java.net.URL;
 import java.sql.Connection;
@@ -30,7 +31,7 @@ import javafx.scene.control.ComboBox;
 public class QuestionsController implements Initializable {
 
     @FXML private ComboBox<Category> cbCates;
-
+    @FXML private ComboBox<Level> cbLevels;
     
     /**
      * Initializes the controller class.
@@ -38,25 +39,28 @@ public class QuestionsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            //B1: Nạp drive
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            //B2: Mở kết nối
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
-            //B3: Xử lí truy vấn
-            Statement stm = conn.createStatement();
-            ResultSet rs = stm.executeQuery("SELECT * FROM Category");
-            List<Category> cates = new ArrayList<>();
-            while(rs.next())
-            {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                Category cate = new Category(id, name);
-                cates.add(cate);
-                //System.out.printf("%s /n", name);
-            }
-            //B4: Ngắt kết nối
-            conn.close();
-            this.cbCates.setItems(FXCollections.observableArrayList(cates));
+//            //B1: Nạp drive
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//            //B2: Mở kết nối
+//            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/quizdb", "root", "root");
+//            //B3: Xử lí truy vấn
+//            Statement stm = conn.createStatement();
+//            ResultSet rs = stm.executeQuery("SELECT * FROM Category");
+//            List<Category> cates = new ArrayList<>();
+//            while(rs.next())
+//            {
+//                int id = rs.getInt("id");
+//                String name = rs.getString("name");
+//                Category cate = new Category(id, name);
+//                cates.add(cate);
+//                //System.out.printf("%s /n", name);
+//            }
+//            //B4: Ngắt kết nối
+//            conn.close();
+               JdbcConnector.getInstance().connect();
+               
+//            this.cbCates.setItems(FXCollections.observableArrayList(cates));
+//            this.cbCates.setItems(FXCollections.observableArrayList(levels));
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException ex) {
