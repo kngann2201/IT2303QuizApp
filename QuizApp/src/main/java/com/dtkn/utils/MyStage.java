@@ -5,6 +5,7 @@
 package com.dtkn.utils;
 
 import com.dtkn.quizapp.App;
+import com.dtkn.utils.theme.ThemeManager;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,27 +20,29 @@ public class MyStage {
     private final Stage stage;
     private static Scene scene;
     
-    private MyStage()
-    {
+    private MyStage() {
         stage = new Stage();
         stage.setTitle("Quiz App");
-        
     }
-    public static MyStage getInstance()
-    {
+    
+    public static  MyStage getInstance() {
         if (instance == null)
             instance = new MyStage();
+        
         return instance;
     }
-    public void showScene(String fxml) throws IOException
-    {
-        if (!this.stage.isShowing()){
+    
+    public void showStage(String fxml) throws IOException {
+        if (!this.stage.isShowing()) {
             if (scene == null)
-            scene = new Scene(new FXMLLoader(App.class.getResource(fxml)).load());
+                scene = new Scene(new FXMLLoader(App.class.getResource(fxml)).load());
             else
                 scene.setRoot(new FXMLLoader(App.class.getResource(fxml)).load());
+
+            ThemeManager.applyTheme(scene);
+            
             this.stage.setScene(scene);
             this.stage.show();
-        }       
-    }   
+        }
+    }
 }

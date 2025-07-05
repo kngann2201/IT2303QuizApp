@@ -13,8 +13,8 @@ import com.dtkn.quizapp.App;
 public class LightThemeFactory implements ThemeFactory {
 
     @Override
-    public String getStyleSheet() 
-    {
-        return App.class.getResource("light.css").toExternalForm(); 
+    public String getStyleSheet() {
+        return App.class.getResource("light.css").toExternalForm();
     }
+    
 }

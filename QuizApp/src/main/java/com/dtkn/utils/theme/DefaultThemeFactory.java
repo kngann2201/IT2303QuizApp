@@ -10,11 +10,11 @@ import com.dtkn.quizapp.App;
  *
  * @author admin
  */
-public class DefaultThemeFactory implements ThemeFactory {
+public class DefaultThemeFactory implements ThemeFactory{
 
     @Override
     public String getStyleSheet() {
-        return App.class.getResource("Style.css").toExternalForm();
+        return App.class.getResource("styles.css").toExternalForm();
     }
     
 }

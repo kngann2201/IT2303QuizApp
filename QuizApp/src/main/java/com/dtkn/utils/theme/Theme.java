@@ -1,11 +1,10 @@
-package com.dtkn.utils.theme;
-
-import javafx.scene.Scene;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
+package com.dtkn.utils.theme;
+
+import javafx.scene.Scene;
 
 /**
  *
@@ -31,5 +30,6 @@ public enum Theme {
             ThemeManager.applyTheme(scene);
         }
     };
+    
     public abstract void updateTheme(Scene scene);
 }

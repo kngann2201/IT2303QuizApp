@@ -12,16 +12,17 @@ import javafx.scene.Scene;
  * @author admin
  */
 public class ThemeManager {
-    public static ThemeFactory themeFactory = new DefaultThemeFactory();
-    
-    public static void setThemeFactory(ThemeFactory tf)
-    {
-        themeFactory = tf;
+    private static ThemeFactory themeFactory = new DarkThemeFactory();
+
+    /**
+     * @param aThemeFactory the themeFactory to set
+     */
+    public static void setThemeFactory(ThemeFactory aThemeFactory) {
+        themeFactory = aThemeFactory;
     }
-    public static void applyTheme(Scene scene)
-    {
+    
+    public static void applyTheme(Scene scene) {
         scene.getRoot().getStylesheets().clear();
         scene.getRoot().getStylesheets().add(themeFactory.getStyleSheet());
-
     }
 }

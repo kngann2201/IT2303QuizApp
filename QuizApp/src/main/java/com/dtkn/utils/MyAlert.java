@@ -4,7 +4,9 @@
  */
 package com.dtkn.utils;
 
+import java.util.Optional;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
  *
@@ -14,21 +16,25 @@ public class MyAlert {
     private static MyAlert instance;
     private final Alert alert;
     
-    private MyAlert()
-    {
+    private MyAlert() {
         this.alert = new Alert(Alert.AlertType.INFORMATION);
         this.alert.setTitle("Quiz App");
-        this.alert.setHeaderText("Thông tin đến bạn");
+        this.alert.setHeaderText("Quiz App");
     }
-    public static MyAlert getInstance()
-    {
+    
+    public static MyAlert getInstance() {
         if (instance == null)
             instance = new MyAlert();
         return instance;
     }
-    public void showMessage(String mes)
-    {
-        this.alert.setContentText(mes);
+    
+    public void showMsg(String msg) {
+        this.alert.setContentText(msg);
         this.alert.showAndWait();
+    }
+    
+    public Optional<ButtonType> showMsg(String msg, Alert.AlertType type) {
+        this.alert.setContentText(msg);
+        return this.alert.showAndWait();
     }
 }

@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="397.0" styleClass="Main" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dtkn.quizapp.PrimaryController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="382.0" prefWidth="263.0" styleClass="Main" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dht.quizapp.PrimaryController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="QUIZ APP" />
-      <Button layoutX="109.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleQuestion" styleClass="Button" stylesheets="@Styles.css" text="Quản lí câu hỏi" />
-      <Button mnemonicParsing="false" onAction="#handlePractice" styleClass="Button" stylesheets="@Styles.css" text="Luyện tập" />
-      <Button layoutX="176.0" layoutY="257.0" mnemonicParsing="false" onAction="#handleExam" styleClass="Button" stylesheets="@Styles.css" text="Thi" />
-      <Button layoutX="176.0" layoutY="292.0" mnemonicParsing="false" onAction="#handleLogin" styleClass="Button" stylesheets="@Styles.css" text="Đăng nhập" />
-      <Button layoutX="176.0" layoutY="274.0" mnemonicParsing="false" onAction="#handleRegister" styleClass="Button" stylesheets="@Styles.css" text="Đăng kí" />
-      <ComboBox fx:id="cbThemes" prefWidth="150.0" styleClass="Button" stylesheets="@Styles.css" />
+      <Button mnemonicParsing="false" onAction="#handleQuestionManagement" styleClass="Button" text="Quản lý câu hỏi" />
+      <Button layoutX="166.0" layoutY="266.0" mnemonicParsing="false" onAction="#handlePractice" styleClass="Button" text="Luyện tập" />
+      <Button layoutX="166.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleExam" styleClass="Button" text="Thi" />
+      <Button layoutX="166.0" layoutY="291.0" mnemonicParsing="false" onAction="#handleRegister" styleClass="Button" text="Đăng ký" />
+      <Button layoutX="166.0" layoutY="304.0" mnemonicParsing="false" onAction="#handleLogin" styleClass="Button" text="Đăng nhập" />
+      <ComboBox fx:id="cbThemes" onAction="#changeTheme" prefWidth="150.0" styleClass="Button" />
    </children>
 </VBox>

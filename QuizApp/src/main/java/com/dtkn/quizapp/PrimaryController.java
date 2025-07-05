@@ -1,6 +1,5 @@
 package com.dtkn.quizapp;
 
-import com.dtkn.pojo.Category;
 import com.dtkn.utils.MyAlert;
 import com.dtkn.utils.MyStage;
 import com.dtkn.utils.theme.DefaultThemeFactory;
@@ -16,46 +15,40 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
+
 
 public class PrimaryController implements Initializable {
     @FXML private ComboBox<Theme> cbThemes;
+    
+    public void changeTheme(ActionEvent event) {
+        this.cbThemes.getSelectionModel().getSelectedItem().updateTheme(this.cbThemes.getScene());
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         this.cbThemes.setItems(FXCollections.observableArrayList(Theme.values()));
     }
     
-    public void changeTheme(ActionEvent event)
-    {
-        this.cbThemes.getSelectionModel().getSelectedItem().updateTheme(this.cbThemes.getScene());
-        System.out.print(this.cbThemes.getSelectionModel().getSelectedItem());
+    public void handleQuestionManagement(ActionEvent event) throws IOException {
+        MyStage.getInstance().showStage("questions.fxml");
     }
     
-     public void handleQuestion(ActionEvent event) throws IOException
-    {
-        Scene scene = new Scene(new FXMLLoader(App.class.getResource("Questions.fxml")).load());
-        MyStage.getInstance().showScene("Questions.fxml");
-
+    public void handlePractice(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
     }
-    public void handlePractice(ActionEvent event)
-    {
-        MyAlert .getInstance().showMessage("Tính năng sẽ sớm được ra mắt!");
-
+    
+    public void handleExam(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
     }
-    public void handleExam(ActionEvent event)
-    {
-        MyAlert .getInstance().showMessage("Tính năng sẽ sớm được ra mắt!");
+    
+    public void handleRegister(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
     }
-    public void handleRegister(ActionEvent event)
-    {
-        MyAlert .getInstance().showMessage("Tính năng sẽ sớm được ra mắt!");
+    
+    public void handleLogin(ActionEvent event) {
+        MyAlert.getInstance().showMsg("Comming soon...");
     }
-    public void handleLogin(ActionEvent event)
-    {
-        MyAlert .getInstance().showMessage("Tính năng sẽ sớm được ra mắt!");
-
-    }
-
 
     
 }
